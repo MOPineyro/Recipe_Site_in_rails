@@ -1,0 +1,17 @@
+<% content_for(:title, "All Recipes | Recipe Viewer") %>
+
+<div class="row">
+ <div class="large-12 columns">
+  <h2>Recipes:</h2>
+  <ul>
+    <% Recipe.all.each do |recipe| %>
+      <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
+    <% end %>
+  </ul>
+ </div>
+</div>
+ <div class="row">
+    <div class="large-4 columns">
+      <span><a href="/recipes/new">Add Recipe</a></span>
+    </div>
+ </div>

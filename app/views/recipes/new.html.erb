@@ -1,0 +1,15 @@
+<% content_for(:title, "New Recipe | Recipe Viewer") %>
+
+<div class="row">
+  <div class="large-12 columns">
+    <h2>Add recipe</h2>
+
+    <%= render('layouts/errors', :object => @recipe) %>
+
+
+    <form action="/recipes" method="post">
+      <%= render('form') %>
+      <button class="button success">Create Recipe</button>
+    </form>
+  </div>
+</div>

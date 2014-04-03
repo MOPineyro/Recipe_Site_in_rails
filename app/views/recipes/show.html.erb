@@ -1,0 +1,17 @@
+<% content_for(:title, "#{@recipe.name} | Recipe Viewer") %>
+
+
+<div class="row">
+ <div class="large-12 columns">
+  <h2><%= @recipe.name %></h2>
+    <ul>
+    <li><%= @recipe.ingredients %></li>
+        <li><%= @recipe.steps %></li>
+        <li><%= @recipe.stars %></li>
+
+    </ul>
+
+    <p><a href="/recipes">Back</a></p>
+
+ </div>
+</div>
