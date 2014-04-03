@@ -8,11 +8,34 @@
 
 
     <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
+    <% if flash[:alert] %>
+    <div class="row">
+      <div class="large-6 columns">
+        <div data-alert class="alert-box alert radius">
+          <%= flash[:alert] %>
+
+          <a href="#" class="close">&times;</a>
+         </div>
+      </div>
+    </div>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div class="row">
+        <div class="large-6 columns">
+        <div data-alert class="alert-box success radius">
+          <%= flash[:notice] %>
+          <a href="#" class="close">&times;</a>
+        </div>
+      </div>
+      </div>
+    <% end %>
 
     <%= yield %>
     <%= javascript_include_tag "application" %>
