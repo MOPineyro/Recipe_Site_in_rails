@@ -1,0 +1,17 @@
+<% content_for(:title, "Tags | Recipe Viewer") %>
+
+<div class="row">
+ <div class="large-12 columns">
+  <h2>Tags:</h2>
+  <ul>
+    <% Tag.all.each do |tag| %>
+      <li><a href="/tags/<%= tag.id %>"><%= tag.name %></a></li>
+    <% end %>
+  </ul>
+ </div>
+</div>
+ <div class="row">
+    <div class="large-4 columns">
+      <span><a href="/tags/new">Add Tag</a></span>
+    </div>
+ </div>

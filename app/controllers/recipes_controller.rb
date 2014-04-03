@@ -1,7 +1,15 @@
 class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
-    render :index
+    @search = params[:query]
+    if @search == nil
+      render('recipes/index.html.erb')
+    else
+      @search_results = Recipe.basic_search(@search)
+
+      render :index
+
+    end
   end
 
   def show
@@ -16,6 +24,8 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(params[:recipe])
+    # FIXME Create method that adds tag_id and recipe_id into join table from recipe#create
+    @tag = Tag.create(params[:tag])
 
     if @recipe.save
       flash[:notice] = "Your recipe was added to Recipe"
@@ -50,4 +60,11 @@ class RecipesController < ApplicationController
       render("recipes/edit.html.erb")
     end
   end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to('/recipes')
+  end
+
 end

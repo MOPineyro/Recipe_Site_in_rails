@@ -13,6 +13,9 @@
 
     <p><a href="/recipes">Back</a></p>
     <p><a href="/recipes/<%= @recipe.id %>/edit">Edit</a></p>
+    <p>
+      <a href="/recipes/<%= @recipe.id %>" data-confirm="Are you sure you would like to delete?" data-method="delete"rel="nofollow">Delete</a>
+    </p>
 
  </div>
 </div>

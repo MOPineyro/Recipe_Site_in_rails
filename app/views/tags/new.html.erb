@@ -1,0 +1,14 @@
+<% content_for(:title, "New tag | Recipe Viewer") %>
+
+<div class="row">
+  <div class="large-12 columns">
+    <h2>Add Tag</h2>
+
+    <form action="/tags" method="post">
+      <%= render('form') %>
+      <button class="button success">Create Tag</button>
+    </form>
+
+    <p><a href="/tags">Back</a></p>
+  </div>
+</div>

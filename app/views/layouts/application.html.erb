@@ -8,11 +8,11 @@
 
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
+
     <% if flash[:alert] %>
     <div class="row">
       <div class="large-6 columns">
@@ -38,7 +38,7 @@
     <%= yield %>
     <br><br>
     <footer class="row">
-      <div class="large-12 columns"><a href="/recipes" class="button tiny success">BACK TO ALL RECIPES</a></div>
+      <div class="large-12 columns" style="display: inline;"><a href="/recipes" class="button tiny success">BACK TO RECIPES</a> &nbsp; <a href="/tags" class="button tiny warning">BACK TO TAGS</a></div>
     </footer>
     <%= javascript_include_tag "application" %>
   </body>

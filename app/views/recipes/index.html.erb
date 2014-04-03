@@ -1,7 +1,13 @@
 <% content_for(:title, "All Recipes | Recipe Viewer") %>
-
+<div class="row">
+<div class="large-6 columns">
+<%= render('search') %>
+</div>
+</div>
 <div class="row">
  <div class="large-12 columns">
+
+
   <h2>Recipes:</h2>
   <ul>
     <% Recipe.all.each do |recipe| %>
@@ -15,3 +21,17 @@
       <span><a href="/recipes/new">Add Recipe</a></span>
     </div>
  </div>
+
+<% if @search_results != [] && @search_results != nil %>
+<div class="row">
+ <div class="large-12 columns">
+  <h2>Search Results:</h2>
+
+  <ul>
+    <% @search_results.each do |result| %>
+        <li><a href="/results/<%= result.id %>"><%= result.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+</div>
+<% end %>

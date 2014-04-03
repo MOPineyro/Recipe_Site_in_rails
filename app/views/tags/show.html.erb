@@ -1,0 +1,15 @@
+<% content_for(:title, "#{@tag.name} | tag Viewer") %>
+
+
+<div class="row">
+ <div class="large-12 columns">
+  <h2><%= @tag.name %></h2>
+
+    <p><a href="/tags">Back</a></p>
+    <p><a href="/tags/<%= @tag.id %>/edit">Edit</a></p>
+    <p>
+      <a href="/tags/<%= @tag.id %>" data-confirm="Are you sure you would like to delete?" data-method="delete"rel="nofollow">Delete</a>
+    </p>
+
+ </div>
+</div>

@@ -1,0 +1,13 @@
+<% content_for(:title, "Edit #{@tag.name} | tag Viewer") %>
+
+<div class="row">
+  <div class="large-12 columns">
+    <h2>Edit tag</h2>
+
+    <form action="/tags/<%= @tag.id %>" method="post">
+    <input name="_method" type="hidden" value="patch">
+      <%= render('form') %>
+      <button class="button success">Update tag</button>
+    </form>
+  </div>
+</div>
