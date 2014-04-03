@@ -25,9 +25,29 @@ class RecipesController < ApplicationController
       @recipe.errors.full_messages.each do |message|
         @messages << message
       end
-      messages = @messages.join(", ")
-      flash[:alert] = "Errors: #{messages}"
+      flash[:alert] = "Errors: #{@messages.join(", ")}"
       render("recipes/new.html.erb")
+    end
+  end
+
+  def edit
+    @recipe = Recipe.find(params[:id])
+    render('recipes/edit.html.erb')
+
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(params[:recipe])
+      flash[:notice] = "Your recipe was updated."
+      redirect_to("/recipes/#{@recipe.id}")
+    else
+      @messages = []
+      @recipe.errors.full_messages.each do |message|
+        @messages << message
+      end
+      flash[:alert] = "Errors: #{@messages.join(", ")}"
+      render("recipes/edit.html.erb")
     end
   end
 end
